@@ -79,8 +79,8 @@ const Cart = () => {
               />
             </div>
             <div class="cart__item-info">
-              <h3>Сырный цыпленок</h3>
-              <p>тонкое тесто, 26 см.</p>
+              <h3>Пепероні</h3>
+              <p>тонке тісто, 26 см.</p>
             </div>
             <div class="cart__item-count">
               <div class="button button--outline button--circle cart__item-count-minus">
@@ -116,7 +116,7 @@ const Cart = () => {
               </div>
             </div>
             <div class="cart__item-price">
-              <b>770 ₽</b>
+              <b>179 ₴</b>
             </div>
             <div class="cart__item-remove">
               <div class="button button--outline button--circle">
@@ -145,8 +145,8 @@ const Cart = () => {
               />
             </div>
             <div class="cart__item-info">
-              <h3>Сырный цыпленок</h3>
-              <p>тонкое тесто, 26 см.</p>
+              <h3>Козацька</h3>
+              <p>традиційне тісто, 26 см.</p>
             </div>
             <div class="cart__item-count">
               <div class="button button--outline button--circle cart__item-count-minus">
@@ -182,7 +182,7 @@ const Cart = () => {
               </div>
             </div>
             <div class="cart__item-price">
-              <b>770 ₽</b>
+              <b>179 ₴</b>
             </div>
             <div class="cart__item-remove">
               <div class="button button--outline button--circle">
@@ -211,8 +211,8 @@ const Cart = () => {
               />
             </div>
             <div class="cart__item-info">
-              <h3>Сырный цыпленок</h3>
-              <p>тонкое тесто, 26 см.</p>
+              <h3>Капричоза</h3>
+              <p>тонке тісто, 26 см.</p>
             </div>
             <div class="cart__item-count">
               <div class="button button--outline button--circle cart__item-count-minus">
@@ -248,7 +248,7 @@ const Cart = () => {
               </div>
             </div>
             <div class="cart__item-price">
-              <b>770 ₽</b>
+              <b>179 ₴</b>
             </div>
             <div class="cart__item-remove">
               <div class="button button--outline button--circle">
@@ -277,8 +277,8 @@ const Cart = () => {
               />
             </div>
             <div class="cart__item-info">
-              <h3>Сырный цыпленок</h3>
-              <p>тонкое тесто, 26 см.</p>
+              <h3>Маргарита</h3>
+              <p>традиційне тісто, 26 см.</p>
             </div>
             <div class="cart__item-count">
               <div class="button button--outline button--circle cart__item-count-minus">
@@ -314,7 +314,7 @@ const Cart = () => {
               </div>
             </div>
             <div class="cart__item-price">
-              <b>770 ₽</b>
+              <b>179 ₴</b>
             </div>
             <div class="cart__item-remove">
               <div class="button button--outline button--circle">
@@ -339,7 +339,7 @@ const Cart = () => {
           <div class="cart__bottom-details">
             <span>
               {' '}
-              Всього піц: <b>3 шт.</b>{' '}
+              Всього піц: <b>4 шт.</b>{' '}
             </span>
             <span>
               {' '}
