@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# PizzaPal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**PizzaPal** is an interactive React web application for browsing and ordering pizzas. The project is still under development and focuses on practicing key frontend skills such as data fetching, dynamic rendering, filtering, routing, and styling with a CSS preprocessor.  
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Fetches pizza data from a **Mock API**  
+- Sort pizzas by price, popularity, or rating  
+- Filter pizzas by category (e.g., vegetarian, meat, spicy)  
+- Real-time search for pizzas by name  
+- Uses **React Router** for multi-page navigation  
+- Fully functional and interactive UI (still in development)  
 
-### `npm start`
+## Future Plans
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Integrate **Redux** for global state management  
+- Add shopping cart functionality  
+- Improve performance and responsiveness  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **React.js** – Frontend library for building components  
+- **React Router** – For handling routing between pages  
+- **Fetch API** – For retrieving data from Mock API  
+- **Sass (SCSS)** – CSS preprocessor for modular and maintainable styling  
+- **HTML/CSS** – For structuring and base styling  
+- **GitHub Pages** – Hosting the live site  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Live Demo
 
-### `npm run build`
+Check the site here: [PizzaPal](https://nazarkindz.github.io/PizzaPal/)  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Status
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+⚠️ The project is **still under development**. New features and improvements will be added continuously.
