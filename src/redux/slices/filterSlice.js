@@ -1,26 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 0,
+  categoryId: 0,
+  currentPage: 1,
+  sortType: {
+    name: 'популярності (DESC)',
+    sort: 'rating',
+  },
 };
 
-export const filterSlice = createSlice({
+const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    setCategoryId(state, action) {
+      state.categoryId = action.payload;
     },
-    decrement: (state) => {
-      state.value -= 1;
+    setSortType(state, action) {
+      state.sortType = action.payload;
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
     },
+    setFilters(state, action) {
+      state.sortType = action.payload.sortType;
+      state.currentPage = Number(action.payload.currentPage);
+      state.categoryId = Number(action.payload.categoryId);
+    }
   },
 });
 
-export const { increment, decrement, incrementByAmount } = filterSlice.actions;
-// learning redux toolkit
+export const { setCategoryId, setSortType, setCurrentPage, setFilters } = filterSlice.actions;
 
 export default filterSlice.reducer;
+
+// learning redux toolkit

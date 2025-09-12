@@ -8,8 +8,6 @@ import store from './redux/store';
 
 import './index.css';
 
-console.log(store)
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>

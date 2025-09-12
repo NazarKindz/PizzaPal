@@ -1,11 +1,32 @@
-import { useState } from "react";
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-function PizzaBlock({title, price, imageUrl, sizes, types}) {
-  const [counter, setCounter] = useState(0);
+import { addItems, removeItems, clearItems } from '../../redux/slices/cartSlice';
+
+const typeNames = ['Тонке', 'Традиційне'];
+
+function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
   const [activeSize, setActiveSize] = useState(0);
   const [activeType, setActiveType] = useState(0);
 
-  const typeNames = ['Тонке', 'Традиційне']
+  const cartItem = useSelector(state => state.cart.items.find(obj => obj.id === id))
+  const items = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+
+  const addedCount = cartItem ? cartItem.count : 0;
+
+  const onClickAdd = () => {
+    const item = {
+      id,
+      title,
+      price,
+      imageUrl,
+      type: typeNames[activeType],
+      size: sizes[activeSize],
+    };
+
+    dispatch(addItems(item));
+  };
 
   return (
     <div className="pizza-block-wrapper">
@@ -34,16 +55,11 @@ function PizzaBlock({title, price, imageUrl, sizes, types}) {
                 </li>
               );
             })}
-            {/* <li>26 см.</li>
-          <li>30 см.</li>
-          <li>40 см.</li> */}
           </ul>
         </div>
         <div className="pizza-block__bottom">
           <div className="pizza-block__price">від {price} ₴</div>
-          <div
-            className="button button--outline button--add"
-            onClick={() => setCounter((counter) => counter + 1)}>
+          <button onClick={onClickAdd} className="button button--outline button--add">
             <svg
               width="12"
               height="12"
@@ -56,13 +72,12 @@ function PizzaBlock({title, price, imageUrl, sizes, types}) {
               />
             </svg>
             <span>Добавити</span>
-            <i>{counter}</i>
-          </div>
+            {addedCount > 0 && <i>{addedCount}</i>}
+          </button>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default PizzaBlock;
-
