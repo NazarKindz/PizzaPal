@@ -1,14 +1,15 @@
 {
   "files": {
     "main.css": "/PizzaPal/static/css/main.7719e6be.css",
-    "main.js": "/PizzaPal/static/js/main.f4a0ddb6.js",
+    "main.js": "/PizzaPal/static/js/main.bc0002b0.js",
+    "static/media/empty-cart.png": "/PizzaPal/static/media/empty-cart.db905d1f4b063162f25b.png",
     "static/media/pizza-logo.svg": "/PizzaPal/static/media/pizza-logo.56ac87032d8f6fdf863326acd06c0d97.svg",
     "index.html": "/PizzaPal/index.html",
     "main.7719e6be.css.map": "/PizzaPal/static/css/main.7719e6be.css.map",
-    "main.f4a0ddb6.js.map": "/PizzaPal/static/js/main.f4a0ddb6.js.map"
+    "main.bc0002b0.js.map": "/PizzaPal/static/js/main.bc0002b0.js.map"
   },
   "entrypoints": [
     "static/css/main.7719e6be.css",
-    "static/js/main.f4a0ddb6.js"
+    "static/js/main.bc0002b0.js"
   ]
 }
