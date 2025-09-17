@@ -1,31 +1,22 @@
+import { FC } from 'react';
 
-
-function Categories({categoryId, onClickCategory}) {
-  const categories = [
-    'Всі',
-    'Мясні',
-    'Вегетеріанські',
-    'Гриль',
-    'Гострі',
-    'Закриті'
-  ];
-
-  const renderCategories = categories.map((category, index) => {
-    return (<li
-            onClick={() => onClickCategory(index)}
-            className={categoryId === index ? 'active' : ''}
-            key={index}>
-              {category}
-            </li>);
-  })
+const Categories = ({ categoryId, onClickCategory }) => {
+  const categories = ['Всі', 'М’ясні', 'Вегетеріанські', 'Гриль', 'Гострі', 'Закриті'];
 
   return (
     <div className="categories">
       <ul>
-        {renderCategories}
+        {categories.map((category, index) => (
+          <li
+            key={index}
+            onClick={() => onClickCategory(index)}
+            className={categoryId === index ? 'active' : ''}>
+            {category}
+          </li>
+        ))}
       </ul>
     </div>
   );
-}
+};
 
 export default Categories;
