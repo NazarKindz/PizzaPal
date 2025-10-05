@@ -1,35 +1,36 @@
 # PizzaPal
 
-**PizzaPal** is an interactive React web application for browsing and ordering pizzas. The project is still under development and focuses on practicing key frontend skills such as data fetching, dynamic rendering, filtering, routing, and styling with a CSS preprocessor.  
+**PizzaPal** is a **React + TypeScript** pizza ordering web app featuring efficient state management with **Redux Toolkit**, smooth user interactions, and a responsive, optimized interface. 
+The project focuses on **performance optimization**, **reusable component design**, and **smooth user experience** — including debounced search, dynamic routing, and local data persistence.
 
-## Features
+---
 
-- Fetches pizza data from a **Mock API**  
-- Sort pizzas by price, popularity, or rating  
-- Filter pizzas by category (e.g., vegetarian, meat, spicy)  
-- Real-time search for pizzas by name  
-- Uses **React Router** for multi-page navigation  
-- Fully functional and interactive UI (still in development)  
+## 🚀 Key Features
 
-## Future Plans
+- 🍕 **Fetches pizza data** from a Mock API  
+- ⚙️ **Sort & filter** by price, popularity, and category  
+- 🔍 **Real-time search** with *Lodash debounce* — requests are delayed for better performance  
+- 🛒 **Shopping cart** with item count and total price calculation  
+- 💾 **Favorites & cart** stored in Local Storage  
+- 📄 **Individual product pages** with dynamic routing  
+- 🧭 **React Router** for intuitive multi-page navigation  
+- 🎨 **Responsive UI** styled with SCSS modules  
 
-- Integrate **Redux** for global state management  
-- Add shopping cart functionality  
-- Improve performance and responsiveness  
+---
 
-## Technologies Used
+## 🧠 Tech Stack
 
-- **React.js** – Frontend library for building components  
-- **React Router** – For handling routing between pages  
-- **Fetch API** – For retrieving data from Mock API  
-- **Sass (SCSS)** – CSS preprocessor for modular and maintainable styling  
-- **HTML/CSS** – For structuring and base styling  
-- **GitHub Pages** – Hosting the live site  
+- ⚛️ **React.js (TypeScript)** – fully rewritten and typed components  
+- 🧰 **Redux Toolkit** – centralized and scalable state management  
+- 🧭 **React Router v6** – clean, declarative routing  
+- ⏳ **Lodash (debounce)** – optimized user search experience  
+- 🌐 **Fetch API** – async data fetching  
+- 💾 **Local Storage** – persistent user data  
+- 🎨 **Sass (SCSS)** – modular styling  
+- 🧹 **ESLint + Prettier** – clean, maintainable codebase  
+
+---
 
 ## Live Demo
 
 Check the site here: [PizzaPal](https://nazarkindz.github.io/PizzaPal/)  
-
-## Project Status
-
-⚠️ The project is **still under development**. New features and improvements will be added continuously.
