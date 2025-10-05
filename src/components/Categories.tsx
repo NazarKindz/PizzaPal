@@ -6,7 +6,7 @@ interface ICategoriesProps {
   onClickCategory: (id: number) => void;
 };
 
-const categories = ['Всі', 'М’ясні', 'Вегетеріанські', 'Гриль', 'Гострі', 'Закриті'];
+const categories = ['Всі', 'М’ясні', 'Вегетеріанські', 'Гриль', 'Гострі', 'Народні'];
 
 const Categories: FC<ICategoriesProps> = memo(({ categoryId, onClickCategory }) => {
   // useWhyDidYouUpdate('Categories', { categoryId, onClickCategory });
