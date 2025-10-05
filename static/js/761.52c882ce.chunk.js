@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_pizza=self.webpackChunkreact_pizza||[]).push([[761],{3761:(s,a,c)=>{c.r(a),c.d(a,{default:()=>n});const e="NotFoundBlock_root__QOvaM";var r=c(579);const t=()=>(0,r.jsxs)("h1",{className:e,children:[(0,r.jsx)("span",{children:"\ud83d\ude1f"}),(0,r.jsx)("br",{}),"\u041d\u0456\u0447\u043e\u0433\u043e \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e :("]}),n=()=>(0,r.jsx)(t,{})}}]);
+//# sourceMappingURL=761.52c882ce.chunk.js.map
