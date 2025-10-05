@@ -1,10 +1,16 @@
-import { useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useCallback, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import qs from 'qs';
-import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { fetchPizzas } from "../redux/slices/pizzaSlice";
-import { setFilters, setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
+import { useAppDispatch } from '../redux/store';
+import { fetchPizzas, selectPizza } from '../redux/slices/Pizza/pizzaSlice';
+import {
+  setFilters,
+  setCategoryId,
+  setCurrentPage,
+  selectSort,
+} from '../redux/slices/filter/filterSlice';
 import { list } from '../components/Sort';
 
 import PizzaBlock from '../components/PizzaBlock/PizzaBlock';
@@ -14,24 +20,23 @@ import Skeleton from 'components/PizzaBlock/Skeleton';
 import Pagination from 'components/Pagination/Pagination';
 
 const Home = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
 
-  const categoryId = useSelector((state) => state.filter.categoryId);
-  const sortType = useSelector((state) => state.filter.sortType);
-  const currentPage = useSelector((state) => state.filter.currentPage);
-  const pizzas = useSelector((state) => state.pizza.items);
-  const status = useSelector((state) => state.pizza.status);
-  const searchValue = useSelector((state) => state.filter.searchValue);
+  const { categoryId, sortType, currentPage, searchValue } = useSelector(selectSort);
+  const { pizzas, status } = useSelector(selectPizza);
 
-  const onClickCategory = (id) => {
-    dispatch(setCategoryId(id));
-  };
+  const onClickCategory = useCallback(
+    (id: number) => {
+      dispatch(setCategoryId(id));
+    },
+    [categoryId],
+  );
 
-  const onChangePage = (number) => {
-    dispatch(setCurrentPage(number));
+  const onChangePage = (page: number) => {
+    dispatch(setCurrentPage(page));
   };
 
   const getPizzas = () => {
@@ -57,11 +62,13 @@ const Home = () => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
 
-      const sort = list.find((obj) => obj.sort === params.sort);
+      const sort = list.find((obj) => obj.sort === params.sort) || list[0];
 
       dispatch(
         setFilters({
-          ...params,
+          searchValue: (params.searchValue as string) || '',
+          categoryId: Number(params.categoryId) || 0,
+          currentPage: Number(params.currentPage) || 1,
           sortType: sort,
         }),
       );
@@ -92,12 +99,7 @@ const Home = () => {
   }, [categoryId, sortType, searchValue, currentPage]);
 
   const pizza =
-    Array.isArray(pizzas) &&
-    pizzas.map((pizza) => (
-      <Link to={`/pizza/${pizza.id}`} key={pizza.id}>
-        <PizzaBlock {...pizza} />
-      </Link>
-    ));
+    Array.isArray(pizzas) && pizzas.map((pizza) => <PizzaBlock {...pizza} key={pizza.id} />);
   const skeletons = [...new Array(8)].map((_, i) => <Skeleton key={i} />);
 
   return (

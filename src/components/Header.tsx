@@ -1,17 +1,27 @@
-import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { FC, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import { selectCart } from "../redux/slices/cartSlice";
+import { selectCart } from '../redux/slices/cart/cartSlice'
 
-import Search from "./Search/Search";
+import Search from './Search/Search';
 
 import logo from '../assets/pizza-logo.svg';
 
-function Header() {
+const Header: FC = () => {
   const location = useLocation();
-  console.log(location)
-  const {totalPrice, items} = useSelector(selectCart);
+  const { totalPrice, items } = useSelector(selectCart);
+  const isMounted = useRef(false);
 
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(items);
+      localStorage.setItem('cart', json);
+      console.log(json)
+    };
+
+    isMounted.current = true;
+  }, [items])
 
   return (
     <div className="header">
@@ -25,7 +35,7 @@ function Header() {
             </div>
           </div>
         </Link>
-        <Search />
+        {location.pathname !== '/cart' && <Search />}
         <div className="header__cart">
           {location.pathname !== '/cart' && (
             <Link to="/cart" className="button button--cart">
@@ -59,13 +69,13 @@ function Header() {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span>{items.reduce((acc, curr) => acc + curr.count, 0)}</span>
+              <span>{items.reduce((acc: number, curr: any) => acc + curr.count, 0)}</span>
             </Link>
           )}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Header;

@@ -1,25 +1,26 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import { clearItems } from "../redux/slices/cartSlice";
+import { clearItems, selectCart } from '../redux/slices/cart/cartSlice';
 
-import CartItem from "../components/CartItem";
-import CartEmpty from "../components/CartEmpty";
+import CartItem from '../components/CartItem';
+import CartEmpty from '../components/CartEmpty';
 
-const Cart = () => {
+const Cart: FC = () => {
   const dispatch = useDispatch();
-  const {totalPrice, items} = useSelector(state => state.cart);
+  const { totalPrice, items } = useSelector(selectCart);
 
-  const totalCount = items.reduce((acc, curr) => acc + curr.count, 0);
+  const totalCount = items.reduce((acc: number, curr: any) => acc + curr.count, 0);
 
   const onClickClear = () => {
-    if (window.confirm("Очистити кошик?")) {
+    if (window.confirm('Очистити кошик?')) {
       dispatch(clearItems());
     }
   };
 
   if (!totalPrice) {
-    return <CartEmpty/>
+    return <CartEmpty />;
   }
 
   return (
@@ -91,7 +92,9 @@ const Cart = () => {
           </div>
         </div>
         <div className="content__items">
-          {items.map(pizza => <CartItem key={pizza.id} {...pizza}/>)}
+          {items.map((pizza: any) => (
+            <CartItem key={pizza.id} {...pizza} />
+          ))}
         </div>
         <div className="cart__bottom">
           <div className="cart__bottom-details">

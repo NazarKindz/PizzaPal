@@ -1,27 +1,39 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { addItems, selectCartItemById} from '../../redux/slices/cartSlice';
+import { addItems, selectCartItemById } from '../../redux/slices/cart/cartSlice';
+import { ICartItem } from '../../redux/slices/cart/types';
+import { Link } from 'react-router-dom';
 
 const typeNames = ['Тонке', 'Традиційне'];
 
-function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
+export interface IPizzaBlockProps {
+  id: number;
+  title: string;
+  price: number;
+  imageUrl: string;
+  sizes: number[];
+  types: number[];
+}
+
+const PizzaBlock: FC<IPizzaBlockProps> = ({ id, title, price, imageUrl, sizes, types }) => {
   const [activeSize, setActiveSize] = useState(0);
   const [activeType, setActiveType] = useState(0);
 
-  const cartItem = useSelector(selectCartItemById(id))
+  const cartItem = useSelector(selectCartItemById(id));
   const dispatch = useDispatch();
 
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {
-    const item = {
+    const item: ICartItem = {
       id,
       title,
       price,
       imageUrl,
       type: typeNames[activeType],
       size: sizes[activeSize],
+      count: 0
     };
 
     dispatch(addItems(item));
@@ -30,8 +42,10 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
-        <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
-        <h4 className="pizza-block__title">{title}</h4>
+        <Link to={`/pizza/${id}`}>
+          <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+          <h4 className="pizza-block__title">{title}</h4>
+        </Link>
         <div className="pizza-block__selector">
           <ul>
             {types.map((type, index) => (
@@ -77,6 +91,6 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types }) {
       </div>
     </div>
   );
-}
+};
 
 export default PizzaBlock;

@@ -1,9 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { FC, useEffect, useRef, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { setSortType } from '../redux/slices/filterSlice';
+import { setSortType, selectSort } from '../redux/slices/filter/filterSlice';
 
-export const list = [
+type SortProperty = 'rating' | '-rating' | 'price' | '-price' | 'title' | '-title';
+
+interface ISortType {
+  name: string;
+  sort: SortProperty;
+}
+
+export const list: ISortType[] = [
   { name: 'популярності (ASC)', sort: '-rating' },
   { name: 'популярності (DESC)', sort: 'rating' },
   { name: 'ціні (ASC)', sort: '-price' },
@@ -12,28 +19,28 @@ export const list = [
   { name: 'алфавіту (DESC)', sort: 'title' },
 ];
 
-function Sort() {
+const Sort: FC = () => {
   const dispatch = useDispatch();
-  const sortType = useSelector(state => state.filter.sortType);
-  const sortRef = useRef();
+  const { sortType } = useSelector(selectSort);
+  const sortRef = useRef<HTMLDivElement>(null);
 
   const [isVisible, setIsVisivle] = useState(false);
 
-  const onClickListItem = (obj) => {
+  const onClickListItem = (obj: ISortType) => {
     dispatch(setSortType(obj));
     setIsVisivle(false);
   };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.composedPath().includes(sortRef.current)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sortRef.current && !event.composedPath().includes(sortRef.current)) {
         setIsVisivle(false);
       }
     };
 
-      document.body.addEventListener('click', handleClickOutside);
+    document.body.addEventListener('click', handleClickOutside);
 
-    return () => document.body.removeEventListener("click", handleClickOutside);
+    return () => document.body.removeEventListener('click', handleClickOutside);
   }, [isVisible]);
 
   return (
